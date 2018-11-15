@@ -13,6 +13,7 @@ const IndexPage = () => (
       <div className="section-header">
         <h3 className="section-secondary">Latest</h3>
       </div>
+      <div className="latest-recipes">{/* mapping recipes here */}</div>
     </section>
   </Layout>
 )

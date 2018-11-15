@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-import { Header, Container } from './index.ts'
+import { Header, Footer, Container } from './index.ts'
 import '../scss/module.scss'
 
 const Layout = ({ children }) => (
@@ -30,6 +30,7 @@ const Layout = ({ children }) => (
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
         <Container>{children}</Container>
+        <Footer />
       </>
     )}
   />
