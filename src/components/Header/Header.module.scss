@@ -1,0 +1,28 @@
+.Header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 6.4rem;
+}
+
+.Wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 1.0875rem;
+}
+
+.HeaderLinks {
+  display: flex;
+
+  font-size: 1.4rem;
+  font-weight: 500;
+
+  a:not(:last-child) {
+    margin-right: 30px;
+  }
+}

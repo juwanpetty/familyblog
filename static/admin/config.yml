@@ -1,0 +1,63 @@
+backend:
+  name: test-repo
+
+publish_mode: editorial_workflow
+display_url: localhost:8000
+
+media_folder: static/assets
+public_folder: assets
+
+collections:
+  - name: recipe
+    label: 'Recipes' # Used in the UI, ie.: "New Post"
+    folder: '/pages/content/recipes' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{year}}-{{month}}-{{day}}_{{slug}}'
+    fields: # The fields each document in this collection have
+      - {
+          label: 'Featured',
+          name: 'featured',
+          widget: 'boolean',
+          default: false,
+        }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - label: 'Author'
+        name: 'author'
+        widget: 'relation'
+        collection: 'authors'
+        searchFields: ['title']
+        valueField: 'title'
+        displayFields: ['name']
+      - {
+          label: 'Categories',
+          name: 'categories',
+          widget: 'list',
+          default: ['lunch', 'dinner'],
+        }
+      - {
+          label: 'Tags',
+          name: 'tags',
+          widget: 'list',
+          default: ['healthy', 'quick'],
+        }
+      - { label: 'Featured Image', name: 'featuredImage', widget: 'image' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - {
+          label: 'Ingredients',
+          name: 'ingredients',
+          widget: 'list',
+          field: { label: 'Ingredient', name: 'ingredient', widget: 'string' },
+        }
+      - {
+          label: 'Steps',
+          name: 'steps',
+          widget: 'list',
+          field: { label: 'Step', name: 'step', widget: 'text' },
+        }
+  - name: authors
+    label: 'Authors' # Used in the UI, ie.: "New Post"
+    folder: '/pages/content/authors' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}'
+    fields: # The fields each document in this collection have
+      - { label: 'Name', name: 'title', widget: 'string' }
