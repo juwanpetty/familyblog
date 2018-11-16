@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Layout from '../components/layout'
+import { RecipeCard } from '../components/index.ts'
 
 const IndexPage = () => (
   <Layout>
@@ -13,7 +14,14 @@ const IndexPage = () => (
       <div className="section-header">
         <h3 className="section-secondary">Latest</h3>
       </div>
-      <div className="latest-recipes">{/* mapping recipes here */}</div>
+      <div className="latest-recipes">
+        <RecipeCard />
+        <RecipeCard />
+        <RecipeCard />
+        <RecipeCard />
+        <RecipeCard />
+        <RecipeCard />
+      </div>
     </section>
   </Layout>
 )

@@ -17,8 +17,6 @@ const Header = ({ siteTitle }) => (
         <Link to="/">Contact</Link>
       </div>
     </div>
-
-    <Navigation />
   </div>
 )
 

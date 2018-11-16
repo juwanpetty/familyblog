@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import Link from 'gatsby-link'
 
 import styles from './Navigation.module.scss'
+import { ChevronLeft, ChevronRight } from '../../icons/index.ts'
 
 class Navigation extends PureComponent {
   // methods
@@ -9,7 +10,9 @@ class Navigation extends PureComponent {
   render() {
     return (
       <div className={styles.CarouselWrapper}>
-        <div className={styles.Reverse}>Reverse</div>
+        <div className={styles.Reverse}>
+          <ChevronLeft />
+        </div>
         <div className={styles.Navigation}>
           <ul class={styles.CarouselNavigationInner}>
             <li>
@@ -50,7 +53,9 @@ class Navigation extends PureComponent {
             </li>
           </ul>
         </div>
-        <div className={styles.Forward}>Forward</div>
+        <div className={styles.Forward}>
+          <ChevronRight />
+        </div>
       </div>
     )
   }

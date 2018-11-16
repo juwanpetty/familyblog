@@ -1,0 +1,50 @@
+a {
+  text-decoration: none;
+}
+
+.RecipeCard {
+  width: 100%;
+}
+
+.ImageWrapper {
+  width: 100%;
+  height: 20rem;
+  margin-bottom: 2rem;
+
+  img {
+    margin: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.1rem;
+  }
+}
+
+.Overflow {
+  overflow: hidden;
+  min-height: 8.2rem;
+  max-height: 8.2rem;
+}
+
+.Title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  line-height: 2.45rem;
+  color: hsla(0%, 0%, 20%, 1);
+}
+
+.Meta {
+  display: flex;
+}
+
+.Author {
+  font-size: 1.4rem;
+  margin-right: 1.6rem;
+  color: hsla(0%, 0%, 70%, 1);
+  text-decoration: underline;
+}
+
+.ArticleDate {
+  font-size: 1.4rem;
+  color: hsla(0%, 0%, 70%, 1);
+}
