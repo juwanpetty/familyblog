@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-import { Navigation } from '../index.ts'
 import styles from './Header.module.scss'
 
 const Header = ({ siteTitle }) => (
