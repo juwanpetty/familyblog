@@ -14,15 +14,6 @@ const Footer = ({ siteTitle }) => (
         <Link plain to="/">
           Contact
         </Link>
-        <Link plain to="/">
-          Privacy
-        </Link>
-        <Link plain to="/">
-          Twitter
-        </Link>
-        <Link plain to="/">
-          Facebook
-        </Link>
       </div>
     </div>
   </div>
