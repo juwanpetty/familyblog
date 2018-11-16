@@ -1,5 +1,6 @@
 backend:
-  name: test-repo
+  name: github
+  repo: juwanpetty/familyblog
 
 publish_mode: editorial_workflow
 display_url: localhost:8000
