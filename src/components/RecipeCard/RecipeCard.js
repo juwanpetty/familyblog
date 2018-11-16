@@ -10,10 +10,10 @@ class RecipeCard extends PureComponent {
   render() {
     return (
       <div className={styles.RecipeCard}>
-        <div className={styles.ImageWrapper}>
+        <Link to="/" className={styles.ImageWrapper}>
           {/* <Img fixed={data.file.childImageSharp.fixed} /> */}
           <img src="https://source.unsplash.com/random" alt="Image" />
-        </div>
+        </Link>
         <Link to="/" className={styles.Overflow}>
           <h3 className={styles.Title}>
             This Anti-Aging Scientist Turns His Findings Into a Lifestyle
