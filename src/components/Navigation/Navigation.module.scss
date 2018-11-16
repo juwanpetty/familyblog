@@ -1,0 +1,63 @@
+.CarouselWrapper {
+  width: 100%;
+  height: 32px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Navigation {
+  height: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.CarouselNavigationInner {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  transform: translateX(0);
+  transition: 250ms;
+
+  li {
+    list-style-type: none;
+
+    display: flex;
+    align-items: center;
+
+    &:not(:first-child) {
+      margin-left: 24px;
+    }
+  }
+
+  a {
+    color: darkgray;
+    font-size: 1.4rem;
+    font-weight: 500;
+    transition: 250ms;
+    // text-decoration: none;
+
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+.Reverse,
+.Forward {
+  width: 28px;
+  height: 32px;
+  background: white;
+}
+
+.Reverse {
+  padding-right: 10px;
+}
+
+.Forward {
+  padding-left: 10px;
+}

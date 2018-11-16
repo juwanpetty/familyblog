@@ -1,8 +1,12 @@
 .Header {
-  height: 80px;
+  height: 12rem;
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
   margin-bottom: 6.4rem;
+
+  // background: hsla(0%, 0%, 90%, 1);
 }
 
 .Wrapper {
@@ -14,6 +18,8 @@
   width: 100%;
   max-width: 1400px;
   padding: 0 1.0875rem;
+
+  margin-bottom: 1.6rem;
 }
 
 .HeaderLinks {
