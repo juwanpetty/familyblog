@@ -11,9 +11,7 @@ const Footer = ({ siteTitle }) => (
       </Link>
 
       <div className={styles.FooterLinks}>
-        <Link plain to="/">
-          Contact
-        </Link>
+        <Link to="/">Contact</Link>
       </div>
     </div>
   </div>
