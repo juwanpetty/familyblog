@@ -1,1 +1,1 @@
-export { default as chevronleft } from './chevron-left.svg'
+export { default as ChevronLeft } from './chevron-left.svg'
