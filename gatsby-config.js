@@ -28,6 +28,14 @@ module.exports = {
     },
     'gatsby-plugin-netlify-cms',
     'gatsby-plugin-react-svg',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/pages/content/recipes`,
+        name: 'markdown-pages',
+      },
+    },
+    'gatsby-transformer-remark',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',

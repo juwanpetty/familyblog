@@ -22,13 +22,7 @@ collections:
           default: false,
         }
       - { label: 'Title', name: 'title', widget: 'string' }
-      - label: 'Author'
-        name: 'author'
-        widget: 'relation'
-        collection: 'authors'
-        searchFields: ['title']
-        valueField: 'title'
-        displayFields: ['name']
+      - { label: 'Author', name: 'author', widget: 'string' }
       - {
           label: 'Categories',
           name: 'categories',
@@ -55,10 +49,3 @@ collections:
           widget: 'list',
           field: { label: 'Step', name: 'step', widget: 'text' },
         }
-  - name: authors
-    label: 'Authors' # Used in the UI, ie.: "New Post"
-    folder: '/pages/content/authors' # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: '{{slug}}'
-    fields: # The fields each document in this collection have
-      - { label: 'Name', name: 'title', widget: 'string' }
