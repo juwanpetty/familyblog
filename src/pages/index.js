@@ -1,9 +1,10 @@
 import React from 'react'
+import {graphql} from 'gatsby'
 
 import Layout from '../components/layout'
 import { RecipeCard } from '../components/index.ts'
 
-const IndexPage = () => (
+const IndexPage = ({data}) => (
   <Layout>
     <div className="latest">
       <RecipeCard />
@@ -12,6 +13,7 @@ const IndexPage = () => (
       <RecipeCard />
       <RecipeCard />
       <RecipeCard />
+      {console.log(data.site.siteMetadata.title)}
     </div>
 
     <div className="pagination">
@@ -28,3 +30,13 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
