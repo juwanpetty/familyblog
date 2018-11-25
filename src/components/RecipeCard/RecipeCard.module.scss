@@ -7,45 +7,38 @@ a {
 }
 
 .ImageWrapper {
-  width: 100%;
-  height: 20rem;
   display: block;
-  margin-bottom: 2rem;
+  width: 100%;
+  height: 25rem;
+  background: hsl(0%, 0%, 90%);
+  cursor: pointer;
 
   img {
     margin: 0;
     object-fit: cover;
     width: 100%;
     height: 100%;
-    border-radius: 0.1rem;
+    border-radius: 0.3rem;
   }
 }
 
-.Overflow {
-  overflow: hidden;
-  min-height: 8.2rem;
-  max-height: 8.2rem;
+.Detail {
+  padding: 2rem 2rem 0;
+  width: 100%;
+  flex: 1;
 }
 
 .Title {
   font-size: 2rem;
-  margin-bottom: 2rem;
-  line-height: 2.45rem;
-  color: hsla(0%, 0%, 20%, 1);
+  font-weight: 500;
+  color: hsl(0%, 0%, 30%);
+  margin-bottom: 1rem;
+  line-height: 125%;
 }
 
-.Meta {
-  display: flex;
-}
-
-.Author {
-  font-size: 1.4rem;
-  margin-right: 1.6rem;
-  color: hsla(0%, 0%, 70%, 1);
-  text-decoration: underline;
-}
-
-.ArticleDate {
-  font-size: 1.4rem;
-  color: hsla(0%, 0%, 70%, 1);
+.Description {
+  width: 100%;
+  font-size: 1.6rem;
+  color: hsl(0%, 0%, 50%);
+  line-height: 135%;
 }

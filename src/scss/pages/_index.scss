@@ -1,32 +1,46 @@
-.section {
-  margin-bottom: 6.4rem;
-}
-
-.section-primary {
-  font-size: 3.6rem;
-  font-weight: 600;
-  line-height: 4.4rem;
-  margin: 0;
-}
-
-.section-secondary {
-  font-size: 1.6rem;
-  font-weight: 600;
-  line-height: 2.45rem;
-  padding-bottom: 1.6rem;
-  border-bottom: 0.2rem solid $black;
-  margin: 0;
-}
-
-.section-header {
-  width: 100%;
-  display: flex;
-  margin-bottom: 3.2rem;
-  border-bottom: 0.1rem solid #ebebeb;
-}
-
-.latest-recipes {
+.latest {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(37.5rem, 1fr));
-  grid-gap: 5rem;
+  grid-gap: 4rem;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 3rem;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 0.2rem solid hsl(0%, 0%, 90%);
+}
+  
+.paginate-link {
+  font-weight: 500;
+  font-size: 1.6rem;
+  cursor: pointer;
+  border: 0.2rem solid hsl(0%, 0%, 90%);
+  padding: 0 2.4rem;
+  border-radius: 0.3rem;
+  transition: 150ms;
+  color: hsl(0%, 0%, 30%);
+  height: 4.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:not(:last-child) {
+    margin-right: 2rem;
+  }
+  
+  &:hover {
+    border: 0.2rem solid hsl(0%, 0%, 75%);  
+  }
+  
+  &.left svg {
+    margin-right: 1rem;
+  }
+  
+  &.right svg {
+    margin-left: 1rem;
+  }
 }
