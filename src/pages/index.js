@@ -7,13 +7,14 @@ import { RecipeCard } from '../components/index.ts'
 const IndexPage = ({data}) => (
   <Layout>
     <div className="latest">
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      {console.log(data.site.siteMetadata.title)}
+      {data.allMarkdownRemark.edges.map(({node}, index) => (
+        <RecipeCard 
+          key={index}
+          url={node.frontmatter.path}
+          title={node.frontmatter.title}
+          description={node.frontmatter.description}
+        />
+      ))}
     </div>
 
     <div className="pagination">
@@ -33,9 +34,21 @@ export default IndexPage
 
 export const query = graphql`
   query {
-    site {
-      siteMetadata {
-        title
+    allMarkdownRemark {
+      edges {
+        node {
+          frontmatter {
+            title
+            path
+            date(fromNow: true)
+            author
+            categories
+            tags
+            description
+            ingredients
+            steps
+          }
+        }
       }
     }
   }

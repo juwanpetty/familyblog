@@ -1,28 +1,33 @@
 import React, { PureComponent } from 'react'
+
 import Link from 'gatsby-link'
+import styles from './RecipeCard.module.scss'
+
+const ellipsize = require('ellipsize');
 // import Img from 'gatsby-image'
 
-import styles from './RecipeCard.module.scss'
 
 class RecipeCard extends PureComponent {
   // methods
 
   render() {
+    const {url, title, description} = this.props;
+
     return (
       <div className={styles.RecipeCard}>
-        <Link to="/" className={styles.ImageWrapper}>
-          <img
+        <Link to={url} className={styles.ImageWrapper}>
+          {/* <img
             src="https://source.unsplash.com/random"
-            alt="This Anti-Aging Scientist Turns His Findings Into a Lifestyle"
-          />
+            alt={title}
+          /> */}
         </Link>
         <div className={styles.Detail}>
-          <Link to="/">
-            <h3 className={styles.Title}>This Anti-Aging Scientist Turns His Findings Into a Lifestyle</h3>
+          <Link to={url}>
+            <h3 className={styles.Title}>{title}</h3>
           </Link>
-          <Link to="/">
+          <Link to={url}>
             <p className={styles.Description}>
-              Plugin that can size layers to common photo dimensions and scale them to fit in a row.
+              {ellipsize(description, 90)}
             </p>
           </Link>
         </div>
