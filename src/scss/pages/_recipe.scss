@@ -1,0 +1,66 @@
+.post-header {
+  margin-bottom: 6rem;
+
+  .header-tags {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .header-title {
+    font-size: 4rem;
+    font-weight: 500;
+  }
+}
+
+.post-content {
+  padding-left: 6rem;
+  margin-bottom: 6rem;
+
+  .post-description {
+    font-size: 1.8rem;
+    margin-bottom: 6rem;
+  }
+
+  .post-image {
+    width: 100%;
+    height: 40rem;
+    margin-bottom: 6rem;
+    border-radius: 0.3rem;
+    background: hsl(0%, 0%, 90%);
+  }
+}
+
+.post-instructions p {
+  margin: 0;
+  margin-bottom: 3rem;
+  font-size: 1.6rem;
+  line-height: 135%;
+}
+
+.post-instructions h3 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: hsl(0%, 0%, 30%);
+  margin-bottom: 1rem;
+  line-height: 125%;
+}
+
+.post-ingredients {
+  margin-bottom: 6rem;
+}
+
+.post-ingredients p {
+  margin: 0;
+  margin-bottom: 3rem;
+  font-size: 1.6rem;
+  line-height: 135%;
+}
+
+.post-ingredients h3 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: hsl(0%, 0%, 30%);
+  margin-bottom: 1rem;
+  line-height: 125%;
+}
