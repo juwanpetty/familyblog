@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require('path')
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
@@ -30,6 +30,24 @@ exports.createPages = ({ actions, graphql }) => {
         path: node.frontmatter.path,
         component: RecipeTemplate,
         context: {}, // additional data can be passed via context
+      })
+    })
+
+    // create recipe list pages
+    const posts = result.data.allMarkdownRemark.edges
+    const postsPerPage = 10
+    const numberOfPages = Math.ceil(posts.length / postsPerPage)
+
+    Array.from({ length: numberOfPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? `/recipes` : `/recipes/${i + 1}`,
+        component: path.resolve('./src/templates/RecipeList.js'),
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages: numberOfPages,
+          currentPage: i + 1,
+        },
       })
     })
   })
