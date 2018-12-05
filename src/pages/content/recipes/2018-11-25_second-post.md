@@ -1,6 +1,6 @@
 ---
 featured: false
-path: /recipes/simple-recipe
+path: /recipes/another-simple-recipe
 title: Another Simple Recipe Title
 date: 2018-11-25
 author: John Duhh

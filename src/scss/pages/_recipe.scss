@@ -31,36 +31,60 @@
   }
 }
 
-.post-instructions p {
-  margin: 0;
-  margin-bottom: 3rem;
-  font-size: 1.6rem;
-  line-height: 135%;
+.post-instructions {
+  p {
+    margin: 0;
+    margin-bottom: 3rem;
+    font-size: 1.6rem;
+    line-height: 135%;
+  }
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: hsl(0%, 0%, 30%);
+    margin-bottom: 1rem;
+    line-height: 125%;
+  }
 }
 
-.post-instructions h3 {
-  font-size: 2rem;
-  font-weight: 500;
-  color: hsl(0%, 0%, 30%);
-  margin-bottom: 1rem;
-  line-height: 125%;
-}
 
 .post-ingredients {
   margin-bottom: 6rem;
+
+  p {
+    margin: 0;
+    margin-bottom: 3rem;
+    font-size: 1.6rem;
+    line-height: 135%;
+  }
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: hsl(0%, 0%, 30%);
+    margin-bottom: 1rem;
+    line-height: 125%;
+  }
 }
 
-.post-ingredients p {
+.ingredients {
   margin: 0;
-  margin-bottom: 3rem;
+}
+
+.ingredient {
+  list-style-type: none;
+  padding: 2rem 0;
+  border-bottom: 0.2rem solid hsl(0%, 0%, 90%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 0;
   font-size: 1.6rem;
   line-height: 135%;
-}
 
-.post-ingredients h3 {
-  font-size: 2rem;
-  font-weight: 500;
-  color: hsl(0%, 0%, 30%);
-  margin-bottom: 1rem;
-  line-height: 125%;
+  p {
+    margin: 0;
+  }
 }
