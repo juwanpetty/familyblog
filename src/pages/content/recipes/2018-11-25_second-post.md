@@ -8,7 +8,7 @@ categories:
   - food
   - lunch
 tags:
-  - healthy
+  - hearty
   - quick
   - gluten-free
 featuredImage: null

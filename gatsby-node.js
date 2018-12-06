@@ -1,9 +1,11 @@
 const path = require('path')
+const _ = require("lodash")
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
   const RecipeTemplate = path.resolve(`src/templates/RecipeTemplate.js`)
+  const tagTemplate = path.resolve("src/templates/tags.js")
 
   return graphql(`
     {
@@ -15,6 +17,7 @@ exports.createPages = ({ actions, graphql }) => {
           node {
             frontmatter {
               path
+              tags
             }
           }
         }
@@ -25,7 +28,9 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const posts = result.data.allMarkdownRemark.edges
+
+    posts.forEach(({ node }) => {
       createPage({
         path: node.frontmatter.path,
         component: RecipeTemplate,
@@ -33,8 +38,31 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
 
+    // Tag pages:
+    let tags = []
+    // Iterate through each post, putting all found tags into `tags`
+    _.each(posts, edge => {
+      if (_.get(edge, "node.frontmatter.tags")) {
+        tags = tags.concat(edge.node.frontmatter.tags)
+      }
+    })
+    // Eliminate duplicate tags
+    tags = _.uniq(tags)
+
+    console.log('TAGS:', tags);
+
+    // Make tag pages
+    tags.forEach(tag => {
+      createPage({
+        path: `/tags/${_.kebabCase(tag)}/`,
+        component: tagTemplate,
+        context: {
+          tag,
+        },
+      })
+    })
+
     // create recipe list pages
-    const posts = result.data.allMarkdownRemark.edges
     const postsPerPage = 10
     const numberOfPages = Math.ceil(posts.length / postsPerPage)
 

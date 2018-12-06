@@ -18,7 +18,7 @@ const IndexPage = ({ data }) => (
     </div>
 
     <div className="pagination">
-      <Link className="paginate-link right" to="/recipes/2">
+      {data.allMarkdownRemark.totalCount > 10 ? <Link className="paginate-link right" to="/recipes/2">
         Next
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@ const IndexPage = ({ data }) => (
           <line x1="5" y1="12" x2="19" y2="12" />
           <polyline points="12 5 19 12 12 19" />
         </svg>
-      </Link>
+      </Link>: null}
     </div>
   </Layout>
 )
@@ -48,18 +48,13 @@ export const query = graphql`
       sort: { order: DESC, fields: [frontmatter___date] }
       limit: 1000
     ) {
+      totalCount
       edges {
         node {
           frontmatter {
             title
             path
-            date(fromNow: true)
-            author
-            categories
-            tags
             description
-            ingredients
-            steps
           }
         }
       }

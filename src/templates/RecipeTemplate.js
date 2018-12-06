@@ -1,18 +1,24 @@
 import React, { Component } from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout'
+import kebabCase from "lodash/kebabCase"
 
 export default class RecipeTemplate extends Component {
   render() {
     const data = this.props.data.markdownRemark.frontmatter
-    const { categories, title, path } = data
+    const { tags, title } = data
 
     return (
       <Layout>
         <div className="blog-post">
           <div className="post-header">
-            <p className="header-tags">{categories.length && categories[0]}</p>
+            <div className="post-tags">
+              {tags.map((tag, index) => {
+                return (<Link key={index} to={`/tags/${kebabCase(tag)}/`} className="header-tags">{tag}</Link>)
+              })}
+            </div>
             <h1 className="header-title">{title}</h1>
+            
           </div>
 
           <div className="post-content">
@@ -86,7 +92,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
-        categories
+        tags
       }
     }
   }
