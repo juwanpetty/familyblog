@@ -27,7 +27,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify-cms',
-    'gatsby-plugin-react-svg',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
