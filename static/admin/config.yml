@@ -11,7 +11,7 @@ public_folder: assets
 collections:
   - name: recipe
     label: 'Recipes' # Used in the UI, ie.: "New Post"
-    folder: '/pages/content/recipes' # The path to the folder where the documents are stored
+    folder: 'src/pages/content/recipes' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: '{{year}}-{{month}}-{{day}}_{{slug}}'
     fields: # The fields each document in this collection have
