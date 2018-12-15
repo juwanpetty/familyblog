@@ -56,8 +56,8 @@ export default class RecipeTemplate extends Component {
 
               <h3>Instructions</h3>
               
-              {steps.map(step => {
-                return <p>{step}</p>
+              {steps.map((step, index) => {
+                return <p key={index}>{step}</p>
               })}
             </div>
 
