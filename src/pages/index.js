@@ -12,6 +12,7 @@ const IndexPage = ({ data }) => (
           key={index}
           url={node.frontmatter.path}
           title={node.frontmatter.title}
+          featuredImage={node.frontmatter.featuredImage}
           description={node.frontmatter.description}
         />
       ))}
@@ -53,6 +54,7 @@ export const query = graphql`
         node {
           frontmatter {
             title
+            featuredImage
             path
             description
           }

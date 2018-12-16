@@ -11,15 +11,15 @@ class RecipeCard extends PureComponent {
   // methods
 
   render() {
-    const {url, title, description} = this.props;
+    const {url, title, description, featuredImage} = this.props;
 
     return (
       <div className={styles.RecipeCard}>
         <Link to={url} className={styles.ImageWrapper}>
-          {/* <img
-            src="https://source.unsplash.com/random"
+          {featuredImage && <img
+            src={featuredImage}
             alt={title}
-          /> */}
+          />}
         </Link>
         <div className={styles.Detail}>
           <Link to={url}>

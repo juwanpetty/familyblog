@@ -11,7 +11,7 @@ import ingredientsIcon from '../icons/ingredients.svg';
 export default class RecipeTemplate extends Component {
   render() {
     const data = this.props.data.markdownRemark.frontmatter
-    const { tags, title, description, ingredients, steps } = data
+    const { tags, title, description, ingredients, steps, featuredImage } = data
 
     return (
       <Layout>
@@ -33,6 +33,8 @@ export default class RecipeTemplate extends Component {
               <div className="section-icon">
                 <img src={imageIcon} alt=""/>
               </div>
+
+              {featuredImage && <img src={featuredImage} alt={title} />}
             </div>
 
             <div className="post-ingredients">
@@ -83,6 +85,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        featuredImage
         tags
         description
         ingredients
