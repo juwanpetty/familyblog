@@ -37,7 +37,7 @@ collections:
           default: ['healthy', 'quick'],
         }
       - { label: 'Featured Image', name: 'featuredImage', widget: 'image' }
-      - { label: 'Description', name: 'description', widget: 'text', required: 'false' }
+      - { label: 'Description', name: 'description', widget: 'text', required: false }
       - {
           label: 'Ingredients',
           name: 'ingredients',
