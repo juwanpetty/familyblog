@@ -23,6 +23,7 @@ collections:
         }
       - { name: 'path', label: 'Path' }
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { name: date, label: Date, widget: date }
       - { label: 'Author', name: 'author', widget: 'string' }
       - {
           label: 'Categories',
