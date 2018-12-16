@@ -1,5 +1,6 @@
 ---
 featured: false
+path: /recipes/chicken-stew-with-cheesy-onion-biscuits
 title: Chicken Stew with Cheesy Onion Biscuits
 author: Juwan Petty
 categories:
@@ -7,6 +8,7 @@ categories:
 tags:
   - american
   - soup
+  - stew
 featuredImage: /assets/ragout-au-poulet-f5bb9c49.jpg
 description: >-
   Better than grandmas biscuits...We'd say so! these cheesy onion biscuits arn't
