@@ -1,7 +1,7 @@
 ---
 featured: false
-title: Chicken Miso Ramen
 path: /recipes/chicken-miso-ramen
+title: Chicken Miso Ramen
 author: Juwan Petty
 categories:
   - dinner
@@ -10,7 +10,7 @@ tags:
   - japanese
   - weeknight
 featuredImage: /assets/jason-leung-559246-unsplash.jpg
-description: Description
+description: ''
 ingredients:
   - ' 1 tablespoon butter '
   - ' 1 cup corn (175 g) '
