@@ -2,6 +2,7 @@
 featured: false
 path: /recipes/chicken-miso-ramen
 title: Chicken Miso Ramen
+date: 2017-11-18
 author: Juwan Petty
 categories:
   - dinner

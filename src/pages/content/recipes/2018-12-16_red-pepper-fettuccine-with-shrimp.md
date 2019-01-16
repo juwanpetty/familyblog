@@ -2,6 +2,7 @@
 featured: false
 path: /recipes/red-pepper-fettuccine-with-shrimp
 title: Red Pepper Fettuccine with Shrimp
+date: 2017-11-21
 author: Juwan Petty
 categories:
   - lunch

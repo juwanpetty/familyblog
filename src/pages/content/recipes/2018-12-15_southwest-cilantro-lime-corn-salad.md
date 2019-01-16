@@ -1,6 +1,7 @@
 ---
 featured: false
 title: Southwest Cilantro Lime Corn Salad
+date: 2017-11-17
 path: /recipes/southwest-cilantro-lime-corn-salad
 author: Juwan Petty
 categories:

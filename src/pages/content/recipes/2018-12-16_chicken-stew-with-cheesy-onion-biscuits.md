@@ -2,6 +2,7 @@
 featured: false
 path: /recipes/chicken-stew-with-cheesy-onion-biscuits
 title: Chicken Stew with Cheesy Onion Biscuits
+date: 2017-11-19
 author: Juwan Petty
 categories:
   - lunch

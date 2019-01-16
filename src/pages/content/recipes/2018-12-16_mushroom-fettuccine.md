@@ -2,6 +2,7 @@
 featured: false
 path: /recipes/mushroom-fettuccine
 title: Mushroom Fettuccine
+date: 2017-11-20
 author: Juwan Petty
 categories:
   - lunch

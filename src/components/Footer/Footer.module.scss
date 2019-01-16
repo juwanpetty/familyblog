@@ -1,52 +1,61 @@
 .Footer {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
-  font-size: 14px;
-  font-weight: 500;
-  color: hsl(0%, 0%, 30%);
   border-top: 0.2rem solid hsl(0%, 0%, 90%);
 
   margin-bottom: 3rem;
   margin-top: 3rem;
-  padding-top: 3rem;
+  padding: 5.9rem 0;
 
-  a {
-    font-size: 14px;
-    font-weight: 500;
-    color: hsl(0%, 0%, 60%);
+  .FooterActions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 5rem;
+    width: 100%;
 
-    transition: 150ms;
+    & > div > h6 {
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: .075rem;
+      color: hsl(0, 0%, 17%);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
 
-    &:hover {
-      color: hsl(0%, 0%, 30%);
+    & > div > a, {
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: .075rem;
+      text-transform: uppercase;
+      color: hsl(0, 0%, 82%);
+
+      &:hover {
+        color: hsl(0, 100%, 68%);
+      }
     }
   }
 
-  ul {
-    list-style-type: none;
-    margin: 0;
-    display: flex;
-
-    li {
-      margin: 0;
-
-      &:not(:last-child) {
-        margin-right: 2rem;
-      }
-    }
+  .FooterLogo {
+    text-align: center;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 60%;
   }
 }
 
-@media only screen and (max-width: 750px) {
-  .Footer {
-    ul {
-      flex-direction: column;
-
-      li:not(:last-child) {
-        margin-bottom: 2rem;
-      }
-    }
-  }
+.Copyright {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 82%);
+  font-weight: 600;
+  font-size: 1.1rem;
 }

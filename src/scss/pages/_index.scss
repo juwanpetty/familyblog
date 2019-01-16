@@ -1,8 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:700');
+
+.indexTag {
+  padding: 5rem 0;
+}
+
+.section-header {
+  h2 {
+    font-size: 3.2rem;
+    line-height: 5rem;
+    margin-bottom: 1rem;
+    font-family: 'Libre Baskerville', serif;
+  }
+
+  p {
+    font-size: 1.6rem;
+    line-height: 2.25rem;
+  }
+}
+
+.featured {
+  margin-bottom: 10rem;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 10rem;
+  margin-bottom: 10rem;
+}
+
 .recipe-grid {
   display: grid;
-  grid-gap: 4rem;
+  grid-gap: 7.5rem 5rem;
   grid-template-columns: 1fr 1fr;
-  padding-bottom: 3rem;
+  align-items: start;
 }
 
 .pagination {
@@ -39,6 +70,93 @@
 
   &.right svg {
     margin-left: 1rem;
+  }
+}
+
+.sidebar {
+  position: relative;
+
+  .sidebar-content {
+    position: sticky;
+    top: 3rem;
+  }
+
+  .sidebar-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5rem;
+    padding-top: 3rem;
+
+    .sidebar-listitem {
+      display: grid;
+      align-items: start;
+      grid-template-columns: 7.5rem 1fr;
+
+      & > div:first-child {
+        font-size: 3.2rem;
+        line-height: 3rem;
+        font-weight: bold;
+        width: 5rem;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+    }
+  }
+}
+
+.newsletter {
+  width: 100%;
+  height: 25rem;
+  margin-bottom: 5rem;
+  border-radius: 0.3rem;
+  background: hsl(0%, 0%, 90%);
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  & > div {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  h2 {
+    font-size: 3.2rem;
+    line-height: 5rem;
+    margin-bottom: 1rem;
+    font-family: 'Libre Baskerville', serif;
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: .075rem;
+    color: hsl(0, 0%, 17%);
+    text-transform: uppercase;
+  }
+
+  input {
+    border: none;
+    border-radius: 0.3rem;
+    padding: 1.2rem 1rem;
+    font-size: 1.4rem;
+    width: 30rem;
+    margin-right: 2rem;
+  }
+
+  button {
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0 2.4rem;
+    font-size: 1.4rem;
+    border-radius: 0.3rem;
+    letter-spacing: .075rem;
+    text-transform: uppercase;
   }
 }
 

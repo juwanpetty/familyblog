@@ -1,41 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:700');
+
 .Header {
-  height: 8rem;
+  position: aboslute;
+  height: 12rem;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   border-bottom: 0.2rem solid hsla(0%, 0%, 90%, 1);
-  margin-bottom: 4rem;
 
-  .Selected {
-    color: hsl(0%, 0%, 30%);
+  svg {
+    color: hsl(0, 0%, 17%);
+    cursor: pointer;
   }
-  
-  a {
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: hsl(0%, 0%, 60%);
-    text-decoration: none;
-    
-    transition: 150ms;
+}
 
-    &:hover {
-      color: hsl(0%, 0%, 30%);
-    }
-  }
+.Logo {
+  font-family: 'Libre Baskerville', serif;
+  color: hsl(0, 0%, 17%);
+  font-size: 2.4rem; 
 }
 
 .HeaderLinks {
   display: flex;
-  margin: 0;
+  justify-content: center;
   list-style-type: none;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 60%;
 
   li {
     margin: 0;
 
-    &:not(:last-child) {
-      margin-right: 2rem;
+    a {
+      padding: 2rem;
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: .075rem;
+      color: hsl(0, 0%, 17%);
+      text-transform: uppercase;
+      text-decoration: none;
+
+      transition: 75ms;
+
+      &:hover {
+        color: hsl(0, 100%, 68%);
+      }
     }
   }
 }

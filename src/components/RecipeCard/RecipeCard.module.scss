@@ -3,13 +3,44 @@ a {
 }
 
 .RecipeCard {
-  width: 100%;
+  display: grid;
 }
 
-.ImageWrapper {
+.LargeCard {
+  @extend .RecipeCard;
+
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 5rem;
+
+  .Image {
+    height: 50rem;
+  }
+}
+
+.MediumCard {
+  @extend .RecipeCard;
+
+  grid-template-columns: 1fr;
+  grid-gap: 3rem;
+
+  .Image {
+    height: 30rem;
+  }
+}
+
+.SmallCard {
+  @extend .RecipeCard;
+
+  grid-template-columns: 1fr;
+  
+  .SmallTitle, .CatDate {
+    margin-bottom: 0;
+  }
+}
+
+.Image {
   display: block;
   width: 100%;
-  height: 25rem;
   background: hsl(0%, 0%, 90%);
   cursor: pointer;
 
@@ -18,27 +49,58 @@ a {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    border-radius: 0.3rem;
   }
 }
 
-.Detail {
-  padding: 2rem 2rem 0;
-  width: 100%;
-  flex: 1;
+.LargeTitle {
+  font-size: 3.2rem;
+  font-family: 'Libre Baskerville', serif;
+  color: rgba(0, 0, 0, 0.8);
+  
+  line-height: 5rem;
 }
 
-.Title {
-  font-size: 2rem;
-  font-weight: 500;
-  color: hsl(0%, 0%, 30%);
-  margin-bottom: 1rem;
-  line-height: 125%;
+.MediumTitle {
+  font-size: 1.8rem;
+  font-family: 'Libre Baskerville', serif;
+  color: rgba(0, 0, 0, 0.8);
+  line-height: 3rem;
+}
+
+.SmallTitle {
+  font-size: 1.4rem;
+  font-family: 'Libre Baskerville', serif;
+  color: rgba(0, 0, 0, 0.8);
+  line-height: 3rem;
 }
 
 .Description {
-  width: 100%;
   font-size: 1.6rem;
-  color: hsl(0%, 0%, 50%);
-  line-height: 135%;
+  line-height: 2.25rem;
+  margin-bottom: 2rem;
+}
+
+.Author {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: .075rem;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 50%);
+}
+
+.CatDate {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: .075rem;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 50%);
+  transition: 75ms;
+
+  a {
+    color: hsl(0, 0%, 17%);
+
+    &:hover {
+      color: hsl(0, 100%, 68%);
+    }
+  }
 }
