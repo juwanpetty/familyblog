@@ -52,6 +52,8 @@ export default class RecipeTemplate extends Component {
             <div className="markdown-body">
               <p>In Part 1 - Setup we got our API key and setup Postman to start using the Destiny 2 API. In this tutorial we'll continue with that foundation.</p>
               <p>Each request we build will follow the same concept as Part 1. We'll open a new request tab in Postman, use our Preset to add the API key header, and enter the API endpoint URL in the GET box. Once we test that it is working, we'll save that request to the Collection. As you work, you'll build out a Collection of all the requests you use regularly so you can see how they work and have example responses that you can use to build your application/website code around.</p>
+              <p>The Destiny 2 API uses many different kinds of accounts, account types, and groups. Here I'll briefly summarize the most common pieces.</p>
+              <p>The first concept is membershipType and membershipId. An account is represented by a pair of integers - the membershipType (int32) and membershipId (int64). A Bungie account is always membershipType 254. A Destiny account has a different membershipType depending on the associated game platform with Xbox Live: 1, PlayStation Network: 2 and Battle.net: 4. A few search related endpoints also allow the special account type of All: -1; however, most endpoints require a specific matching pair of membershipType and membershipID.</p>
             </div>
 
             <div className="tags-share">
@@ -85,18 +87,10 @@ export default class RecipeTemplate extends Component {
 }
 
 export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        path
+  query {
+    site {
+      siteMetadata {
         title
-        featuredImage
-        tags
-        description
-        ingredients
-        steps
       }
     }
   }

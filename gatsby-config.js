@@ -27,14 +27,15 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify-cms',
+    '@contentful/gatsby-transformer-contentful-richtext',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-source-contentful`,
       options: {
-        path: `${__dirname}/src/pages/content/recipes`,
-        name: 'markdown-pages',
+        spaceId: `35u15uekry9i`,
+        // Learn about environment variables: https://gatsby.app/env-vars
+        accessToken: "f9b67d7c1d1679bb83c78baaad58ac7cb7342372e479dc4a9d67cc5d574f733e",
       },
     },
-    'gatsby-transformer-remark',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
