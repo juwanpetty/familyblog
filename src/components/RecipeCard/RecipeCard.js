@@ -4,15 +4,13 @@ import Link from 'gatsby-link'
 import styles from './RecipeCard.module.scss'
 
 const ellipsize = require('ellipsize');
+const relativeDate = require('relative-date');
 // import Img from 'gatsby-image'
 
 
 class RecipeCard extends PureComponent {
-  // methods
-
   render() {
-    const {url, title, description, featuredImage, size} = this.props;
-
+    const {url, title, description, featuredImage, size, author = "John Doe", publishedAt="2019-01-28T09:45-05:00"} = this.props;
     let cardStyle, cardTitle, descriptionMarkup = null;
 
     switch (size) {
@@ -39,8 +37,6 @@ class RecipeCard extends PureComponent {
         break;
     }
 
-    console.log(featuredImage);
-
     return (
       <div className={cardStyle}>
         <Link to={url} className={styles.Image}>
@@ -48,10 +44,10 @@ class RecipeCard extends PureComponent {
         </Link>
 
         <div className={styles.Meta}>
-          <p className={styles.CatDate}><Link to="/">News</Link> / 2 hrs ago</p>
+          <p className={styles.CatDate}><Link to="/">News</Link> / {relativeDate(Date.parse(publishedAt))}</p>
           <Link to={url}>{cardTitle}</Link>
           {descriptionMarkup}
-          <Link className={styles.Author} to="/">By Juwan Petty</Link>
+          <Link className={styles.Author} to="/">By {author}</Link>
         </div>
       </div>
     )

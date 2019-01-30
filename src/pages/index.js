@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import { RecipeCard } from '../components/index.ts'
@@ -16,25 +16,29 @@ const IndexPage = ({ data }) => (
     <div className="featured">
       <RecipeCard
         size="large"
-        url="/"
-        title="Chicken Stew with Cheesy Onion Biscuits"
+        url={data.contentfulFeaturedPost.post.slug}
+        title={data.contentfulFeaturedPost.post.title}
         featuredImage="/"
-        description="Here's one of the most useful generic pieces of advice I carry around in my head. How..."
+        description={data.contentfulFeaturedPost.post.description.description}
+        author={data.contentfulFeaturedPost.post.author.name}
+        publishedAt={data.contentfulFeaturedPost.post.publishDate}
       />
     </div>
 
     <div className="main">
       <div className="recipe-grid">
-        {/* {data.allMarkdownRemark.edges.map(({ node }, index) => (
+        {data.allContentfulPost.edges.map(({ node }, index) => (
           <RecipeCard
             key={index}
             size="medium"
-            url={node.frontmatter.path}
-            title={node.frontmatter.title}
-            featuredImage={node.frontmatter.featuredImage}
-            description={node.frontmatter.description}
+            url={node.slug}
+            title={node.title}
+            featuredImage={node.heroImage.fluid.base64}
+            description={node.description.description}
+            author={node.author.name}
+            publishedAt={node.publishDate}
           />
-        ))} */}
+        ))}
       </div>
       <div className="sidebar">
         <div className="sidebar-content">
@@ -43,56 +47,20 @@ const IndexPage = ({ data }) => (
           </div>
 
           <div className="sidebar-list">
-            <div className="sidebar-listitem">
-              <div>1</div>
-              <RecipeCard
-                size="small"
-                url="/"
-                title="Red Pepper Fettuccine with Shrimp"
-                featuredImage="/"
-                description="Here's one of the most useful generic pieces of advice I carry around in my head. How..."
-              />
-            </div>
-            <div className="sidebar-listitem">
-              <div>2</div>
-              <RecipeCard
-                size="small"
-                url="/"
-                title="Mushroom Fettuccine"
-                featuredImage="/"
-                description="I’m totally enjoying Gatsby for various reasons, and in this post I want to share how easy it is to add customized page transitions to…"
-              />
-            </div>
-            <div className="sidebar-listitem">
-              <div>3</div>
-              <RecipeCard
-                size="small"
-                url="/"
-                title="Chicken Stew with Cheesy Onion Biscuits"
-                featuredImage="/"
-                description="I’m totally enjoying Gatsby for various reasons, and in this post I want to share how easy it is to add customized page transitions to…"
-              />
-            </div>
-            <div className="sidebar-listitem">
-              <div>4</div>
-              <RecipeCard
-                size="small"
-                url="/"
-                title="Southwest Cilantro Lime Corn Salad"
-                featuredImage="/"
-                description="I’m totally enjoying Gatsby for various reasons, and in this post I want to share how easy it is to add customized page transitions to…"
-              />
-            </div>
-            <div className="sidebar-listitem">
-              <div>5</div>
-              <RecipeCard
-                size="small"
-                url="/"
-                title="Chicken Miso Ramen"
-                featuredImage="/"
-                description="I’m totally enjoying Gatsby for various reasons, and in this post I want to share how easy it is to add customized page transitions to…"
-              />
-            </div>
+            {data.allContentfulRecommendedPosts.edges.map(({ node }, index) => (
+              <div className="sidebar-listitem">
+                <div>{index + 1}</div>
+                <RecipeCard
+                  size="small"
+                  url={node.posts[0].slug}
+                  title={node.posts[0].title}
+                  featuredImage="/"
+                  description={node.posts[0].description.description}
+                  author={node.posts[0].author.name}
+                  publishedAt={node.posts[0].publishDate}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -118,6 +86,56 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    allContentfulPost(sort: { fields: [publishDate], order: DESC }) {
+      edges {
+        node {
+          title
+          slug
+          publishDate
+          author {
+            name
+          }
+          description {
+            description
+          }
+          heroImage {
+            fluid(maxWidth: 800) {
+              base64
+            }
+          }
+        }
+      }
+    }
+    contentfulFeaturedPost {
+      post {
+        title
+        slug
+        publishDate
+        description {
+          description
+        }
+        author {
+          name
+        }
+      }
+    }
+    allContentfulRecommendedPosts {
+      edges {
+        node {
+          posts {
+            title
+            slug
+            publishDate
+            description {
+              description
+            }
+            author {
+              name
+            }
+          }
+        }
       }
     }
   }

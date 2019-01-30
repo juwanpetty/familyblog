@@ -1,17 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout'
-// import kebabCase from "lodash/kebabCase"
 
-// import imageIcon from '../icons/image.svg';
-// import quoteIcon from '../icons/quote.svg';
-// import instructionsIcon from '../icons/instructions.svg';
-// import ingredientsIcon from '../icons/ingredients.svg';
-
-export default class RecipeTemplate extends Component {
-  render() {
-    // const data = this.props.data.markdownRemark.frontmatter;
-    // const { tags, title, description, ingredients, steps, featuredImage } = data;
+export default ({ data }) => {
+    const { title, author,  childContentfulPostBodyRichTextNode} = data.contentfulPost;
+    const postHtml = childContentfulPostBodyRichTextNode.childContentfulRichText.html;
 
     return (
       <Layout>
@@ -37,7 +30,7 @@ export default class RecipeTemplate extends Component {
           <div className="recipe-content">
             <div className="recipe-header">
               <h1 className="recipe-title">
-                The Ultimate Guide to Influencer Marketing for Fashion Brands
+                {title}
               </h1>
 
               <div className="recipe-meta">
@@ -45,16 +38,11 @@ export default class RecipeTemplate extends Component {
                   <img src="" alt=""/>
                 </div>
 
-                <p>by <Link className="author" to="/">Francesca Cruz</Link> in <Link to="/" className="category">Influencers</Link></p>
+                <p>by <Link className="author" to="/">{author.name}</Link> in <Link to="/" className="category">Influencers</Link></p>
               </div>
             </div>
 
-            <div className="markdown-body">
-              <p>In Part 1 - Setup we got our API key and setup Postman to start using the Destiny 2 API. In this tutorial we'll continue with that foundation.</p>
-              <p>Each request we build will follow the same concept as Part 1. We'll open a new request tab in Postman, use our Preset to add the API key header, and enter the API endpoint URL in the GET box. Once we test that it is working, we'll save that request to the Collection. As you work, you'll build out a Collection of all the requests you use regularly so you can see how they work and have example responses that you can use to build your application/website code around.</p>
-              <p>The Destiny 2 API uses many different kinds of accounts, account types, and groups. Here I'll briefly summarize the most common pieces.</p>
-              <p>The first concept is membershipType and membershipId. An account is represented by a pair of integers - the membershipType (int32) and membershipId (int64). A Bungie account is always membershipType 254. A Destiny account has a different membershipType depending on the associated game platform with Xbox Live: 1, PlayStation Network: 2 and Battle.net: 4. A few search related endpoints also allow the special account type of All: -1; however, most endpoints require a specific matching pair of membershipType and membershipID.</p>
-            </div>
+            <div className="markdown-body" dangerouslySetInnerHTML={{__html: postHtml}}></div>
 
             <div className="tags-share">
               <ul className="tags">
@@ -72,8 +60,8 @@ export default class RecipeTemplate extends Component {
                   <img src="" alt=""/>  
                 </div>
                 <div className="info">
-                  <h4>Francesca Cruz</h4>
-                  <p>Writer at GQ, This American Life, New Yorker, Grantland, McSweeney's, UCB, etc. The Vapors forthcoming from Flatiron/Macmillan</p>
+                  <h4>{author.name}</h4>
+                  <p>{author.biography.biography}</p>
                 </div>
               </div>
             </div>
@@ -83,14 +71,22 @@ export default class RecipeTemplate extends Component {
         </div>
       </Layout>
     )
-  }
 }
 
 export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
+  query($slug: String!) {
+    contentfulPost(slug: { eq: $slug }) {    
+      title  
+      author {
+        name
+        biography {
+          biography
+        }
+      }
+      childContentfulPostBodyRichTextNode {
+        childContentfulRichText {
+          html
+        }
       }
     }
   }
