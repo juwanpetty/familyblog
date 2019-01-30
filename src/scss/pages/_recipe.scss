@@ -2,7 +2,7 @@
   width: 100%;
   display: grid;
   grid-gap: 5rem;
-  grid-template-columns:  1fr 4fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr;
 }
 
 .share {
@@ -80,7 +80,7 @@
         font-weight: 600;
         color: hsl(0, 100%, 68%);
         text-transform: uppercase;
-        letter-spacing: .075rem;
+        letter-spacing: 0.075rem;
         font-size: 1.2rem;
         margin-left: 0.5rem;
       }
@@ -94,13 +94,14 @@
   .tags {
     margin: 0;
     display: flex;
+    flex-wrap: wrap;
     list-style-type: none;
 
     a {
       display: block;
       font-size: 1.2rem;
       font-weight: 600;
-      letter-spacing: .075rem;
+      letter-spacing: 0.075rem;
       text-transform: uppercase;
       background: hsl(0, 0%, 95%);
       color: hsl(0, 0%, 45%);
@@ -120,7 +121,7 @@
   h3 {
     font-size: 1.2rem;
     font-weight: 600;
-    letter-spacing: .075rem;
+    letter-spacing: 0.075rem;
     text-transform: uppercase;
     color: hsl(0, 0%, 50%);
   }

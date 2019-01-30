@@ -7,22 +7,12 @@ exports.createPages = ({ graphql, actions }) => {
       allContentfulPost(filter: { node_locale: { eq: "en-US" } }) {
         edges {
           node {
-            title
             slug
-            author {
-              name
-            }
-            childContentfulPostBodyRichTextNode {
-              childContentfulRichText {
-                html
-              }
-            }
           }
         }
       }
     }
-  `
-  ).then(result => {
+  `).then(result => {
     // console.log(JSON.stringify(result, null, 4));
 
     result.data.allContentfulPost.edges.forEach(({ node }) => {
@@ -34,7 +24,7 @@ exports.createPages = ({ graphql, actions }) => {
           // in page queries as GraphQL variables.
           slug: node.slug,
         },
-      });
-    });
+      })
+    })
   })
 }

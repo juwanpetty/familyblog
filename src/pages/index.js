@@ -9,7 +9,10 @@ const IndexPage = ({ data }) => (
     <div className="indexTag">
       <div className="section-header">
         <h2>Airbnb Engineering & Data Science</h2>
-        <p>Create engineers and data scientists building a world where you can belong anywhere.</p>
+        <p>
+          Create engineers and data scientists building a world where you can
+          belong anywhere.
+        </p>
       </div>
     </div>
 
@@ -22,6 +25,7 @@ const IndexPage = ({ data }) => (
         description={data.contentfulFeaturedPost.post.description.description}
         author={data.contentfulFeaturedPost.post.author.name}
         publishedAt={data.contentfulFeaturedPost.post.publishDate}
+        categories={data.contentfulFeaturedPost.post.categories[0]}
       />
     </div>
 
@@ -37,6 +41,7 @@ const IndexPage = ({ data }) => (
             description={node.description.description}
             author={node.author.name}
             publishedAt={node.publishDate}
+            categories={node.categories[0]}
           />
         ))}
       </div>
@@ -58,6 +63,7 @@ const IndexPage = ({ data }) => (
                   description={node.posts[0].description.description}
                   author={node.posts[0].author.name}
                   publishedAt={node.posts[0].publishDate}
+                  categories={node.posts[0].categories[0]}
                 />
               </div>
             ))}
@@ -67,14 +73,14 @@ const IndexPage = ({ data }) => (
     </div>
 
     <div className="newsletter">
-        <div>
-          <h2>{data.site.siteMetadata.title}'s Newsletter</h2>
-          <p>All of the jams, none of the spam.</p>
-        </div>
-        <form onSubmit={e => e.preventDefault()}>
-          <input type="text" placeholder="Your Email Address" />
-          <button>Sign Up</button>
-        </form>
+      <div>
+        <h2>{data.site.siteMetadata.title}'s Newsletter</h2>
+        <p>All of the jams, none of the spam.</p>
+      </div>
+      <form onSubmit={e => e.preventDefault()}>
+        <input type="text" placeholder="Your Email Address" />
+        <button>Sign Up</button>
+      </form>
     </div>
   </Layout>
 )
@@ -93,6 +99,7 @@ export const query = graphql`
         node {
           title
           slug
+          categories
           publishDate
           author {
             name
@@ -112,6 +119,7 @@ export const query = graphql`
       post {
         title
         slug
+        categories
         publishDate
         description {
           description
@@ -127,6 +135,7 @@ export const query = graphql`
           posts {
             title
             slug
+            categories
             publishDate
             description {
               description
